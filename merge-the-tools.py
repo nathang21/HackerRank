@@ -1,30 +1,21 @@
-import sys
-
+# https://www.hackerrank.com/challenges/merge-the-tools
 # Input & Initialization
 s = list(raw_input())
 k = int(raw_input())
 d = len(s) / k
-i = 0
-buff = []
-out = []
 
-# Loop through list of characters
-for e in s:
-    # Resetfor next sub-string
-    if i >= d:
-        i = 0
-        out.append('\n')
-        del buff[:]
+# Put string into list of characters
+# Seperate into sub-lists by k
+l1 = [s[i:i+k] for i in range(0, len(s), k)]
+l2 = []
 
-    # Add only unique characters
-    if e not in buff:
-        out.append(e)
-
-    # Keep track of previous characters & count
-    buff.append(e)
-    i += 1
-
-# Output
-out.append('\n')
-for item in out:
-    sys.stdout.write(item)
+# Loop full list (0, len)
+for ele in l1:
+    # Loop sub list (i, i+k)
+    for char in ele:
+        # Check if repeated letter
+        if char not in l2:
+            l2.append(char)
+    # Output & Cleanup
+    print (''.join(l2))
+    del l2[:]
