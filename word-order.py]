@@ -1,0 +1,15 @@
+# https://www.tutorialspoint.com//python/python_continue_statement.htm
+n = int(raw_input())
+words = []
+count = []
+for i in range(0,n):
+    temp = raw_input()
+    if temp in words:
+        count[words.index(temp)] += 1
+    else:
+        words.append(temp)
+        count.append(1)
+
+print len(count)
+for i in count:
+    print i,
