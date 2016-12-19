@@ -3,7 +3,7 @@ from __future__ import print_function
 from fractions import Fraction
 
 def product(fracs):
-    t = reduce(lambda x, y: x * y, fracs)
+    t = reduce(lambda num, den: num * den, fracs)
     return t.numerator, t.denominator
     
 if __name__ == '__main__':
