@@ -2,17 +2,17 @@
 cube = lambda x: x**3
 
 def fibonacci(n):
-    # return a list of fibonacci numbers
-    if n == 0:
-        return []
-    if n == 1:
-        return [0]
-    fib = [0, 1]
-    last = fib[0]
-    now = fib[1]
-    for i in range(n - 2):
-        fib.append(last + now)
-        temp = last + now
-        last = now
-        now = temp 
+    fib = []
+    for i in range(0, n):
+        if i < 2:
+            fib.append(i)
+        else: 
+            next = fib[i - 1] + fib[i - 2]
+            fib.append(next) 
     return fib
+
+
+# Pre-set main
+if __name__ == '__main__':
+    n = int(raw_input())
+    print map(cube, fibonacci(n))
